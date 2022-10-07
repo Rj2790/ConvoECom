@@ -1,28 +1,25 @@
-"""ConvoEcom URL Configuration
+from django.urls import path
+from . import views
+urlpatterns=[
+    path("",views.Ehome,name="Ehome"),
+    path("login/",views.Elogin,name="Elogin"),
+    path("logout/",views.Elogout,name="Elogout"),
+    path("signup/",views.Esignup,name="Esignup"),
+    path("checkUser/",views.checkUser,name="checkUser"),
+    path("about/",views.Eabout,name="Eabout"),
+    path("contact/",views.Econtact,name="Econtact"),
+    path("checkout/",views.Echeckout,name="Echeckout"),
+    path("check_out/<int:order_id>/",views.checkout_mic,name="checkout_mic"),
+    path("show-category/<str:category>/",views.showCategory,name="showCategory"),
+    path("showProduct/<int:prod_id>/",views.showProduct,name="showProduct"),
+    path("cart/",views.cart,name="cart"),
+    path("update_item/",views.update_item,name="update_item"),
+    path("paymentMode/",views.paymentMode,name="paymentMode"),
+    path("search/",views.searchQuery,name="searchQuery"),
+    path("my-orders/",views.myOrders,name="myOrders"),
+    path("take_input/",views.take_input,name="take_input"),
+    path("track-order/<int:order>/",views.trackOrder,name="trackOrder"),
+    
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path,include
-from django.conf import settings
-from django.conf.urls.static import static
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("",include("Ecom.urls")),
-] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header="ConvoEcom"
-admin.site.site_title="ConvoEcom Admin Panel"
-admin.site.index_title="Welcome To The ConvoEcom Admin Panel"
-
+]
